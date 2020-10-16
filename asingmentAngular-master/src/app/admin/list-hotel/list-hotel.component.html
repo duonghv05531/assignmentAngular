@@ -1,0 +1,27 @@
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Tên</th>
+            <th>Ảnh</th>
+            <th>Địa chỉ</th>
+            <th>
+                <a class="btn btn-success" routerLink="admin/add">Thêm</a>
+                <a class="btn btn-success" routerLink="/adhome">Chỉnh sửa</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let hotel of hotels">
+            <td>{{hotel.id}}</td>
+            <td><a class="btn btn-success" routerLink="{{hotel.id}}">{{hotel.hotel_name}}</a></td>
+            <td><img [src]="hotel.image" alt="" width="150px"></td>
+            <td>{{hotel.address}}</td>
+            <td>
+                <a class="btn btn-success" routerLink="admin/edit/{{hotel.id}}">Sửa</a>
+                <button type="button" class="btn btn-danger" (click) = "removeHotel(hotel)">Xóa</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
